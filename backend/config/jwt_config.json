@@ -1,0 +1,6 @@
+{
+  "app_name": "ExpressJs-Angular-MySql application boilerplate",
+  "secret": "cl3 de ch1ffr3m3nt_JWT",
+  "expires_in": "8d",
+  "salt_factor": 7
+}

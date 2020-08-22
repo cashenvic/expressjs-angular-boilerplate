@@ -1,0 +1,21 @@
+{
+  "/dev": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "pathRewrite": {
+      "^/dev": ""
+    },
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/prod": {
+    "target": "https://backend.digital-faso.tech",
+    "secure": false,
+    "pathRewrite": {
+      "^/prod": ""
+    },
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}
+

@@ -1,0 +1,62 @@
+<app-header
+  [asideMenuToggler]="false"
+  [fixed]="true"
+  [mobileAsideMenuToggler]="false"
+  [navbarBrandFull]="{src: 'http://localhost:3000/uploads/logo/logo.jpg', width: 89, height: 25, alt: 'Edifier'}"
+  [navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'Edifier'}"
+  [navbarBrandRouterLink]="['/dashboard']"
+  [sidebarToggler]="'lg'">
+
+  <ul class="nav navbar-nav ml-auto">
+    <li class="nav-item dropdown" dropdown placement="bottom right">
+      <a (click)="false" aria-expanded="false" aria-haspopup="true" class="nav-link" data-toggle="dropdown"
+         dropdownToggle href="#" role="button">
+        <img alt="admin@bootstrapmaster.com" class="img-avatar" src="assets/img/avatars/6.jpg"/>
+      </a>
+      <div *dropdownMenu aria-labelledby="simple-dropdown" class="dropdown-menu dropdown-menu-right">
+        <div class="dropdown-header text-center">
+          <strong>{{authService._utilisateurCourant.prenom | titlecase}} {{authService._utilisateurCourant.nom | titlecase}}</strong>
+        </div>
+        <a [routerLink]="['/personnes/utilisateurs/details', authService._utilisateurCourant.userId]"
+           class="dropdown-item">
+          <i class="fa fa-user"></i> Profile
+        </a>
+        <a class="dropdown-item" routerLink="/personnes/utilisateurs"><i class="fa fa-wrench"></i> Utilisateurs</a>
+        <a (click)="logOut()" class="dropdown-item" href="#"><i class="fa fa-lock"></i> Logout</a>
+      </div>
+    </li>
+  </ul>
+</app-header>
+<div class="app-body">
+  <app-sidebar #appSidebar (minimizedChange)="toggleMinimize($event)" [display]="'lg'" [fixed]="true"
+               [minimized]="sidebarMinimized">
+    <app-sidebar-nav [disabled]="appSidebar.minimized" [navItems]="navItems" [perfectScrollbar]></app-sidebar-nav>
+    <app-sidebar-minimizer></app-sidebar-minimizer>
+  </app-sidebar>
+  <!-- Main content -->
+  <main class="main">
+    <!-- Breadcrumb -->
+    <!-- breaking change 'cui-breadcrumb' -->
+    <cui-breadcrumb fixed="true">
+      <!-- Breadcrumb Menu-->
+      <li class="breadcrumb-menu d-md-down-none">
+        <div aria-label="Button group with nested dropdown" class="btn-group" role="group">
+          <a [routerLink]="['/dashboard']" class="btn"><i class="icon-graph"></i> &nbsp;Dashboard</a>
+          <a class="btn" href="#"><i class="icon-settings"></i> &nbsp;Societé</a>
+        </div>
+      </li>
+    </cui-breadcrumb>
+
+    <div class="container-fluid  px-0 px-lg-4">
+      <router-outlet></router-outlet>
+    </div><!-- /.container-fluid -->
+  </main>
+</div>
+<app-footer class="px-2">
+  <span><i class="flag-icon flag-icon-ml"></i></span>
+  <span>&nbsp;&copy; {{currentDate | date: 'yyyy'}}. Par <a href="https://digital-faso.tech">Digital Faso</a> <span
+    class="tex-hide">avec 💓️</span></span>
+  <span class="ml-auto">Template by <a href="https://coreui.io">CoreUI</a></span>
+</app-footer>
+<ngx-spinner [fullScreen]="true" bdColor="rgba(0, 0, 0, 0.8)" color="#fff" size="large"
+             type="ball-clip-rotate-multiple"><p style="color: white"> Chargement... </p></ngx-spinner>

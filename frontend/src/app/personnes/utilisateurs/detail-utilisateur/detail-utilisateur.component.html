@@ -1,0 +1,62 @@
+<div class="animated fadeIn px-3">
+  <div class="card">
+    <div *ngIf="utilisateur" class="card-header" id="title">
+      <div class="pull-left">
+        <h2>Details de l'utilisateur : {{utilisateur.nom | titlecase}} {{utilisateur.prenom | titlecase}}</h2>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="utilisateur " class="row justify-content-md-center">
+    <div class="col-lg-8 col-sm-offset-8">
+      <div class="row">
+        <div class="col-xs-12 col-lg-12 m-b-xs" id="cadre_boutton">
+          <div class="pull-right">
+            <button (click)="updatePassword(utilisateur)" *ngIf="modeProfil()" class="btn bg-success"
+                    title="Modifier votre mot de passe" type="button">
+              Modifier votre mot de passe
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+
+          <table class="table table-striped">
+            <tbody>
+            <tr>
+              <td><strong>Identifiant de l'utilisateur :</strong></td>
+              <td>{{utilisateur.id}}</td>
+            </tr>
+            <tr>
+              <td><strong>Nom :</strong></td>
+              <td>{{utilisateur.nom}}</td>
+            </tr>
+            <tr>
+              <td><strong>Prenom :</strong></td>
+              <td>{{utilisateur.prenom}}</td>
+            </tr>
+            <tr>
+              <td><strong>Nom utilisateur :</strong></td>
+              <td>{{utilisateur.username}}</td>
+            </tr>
+            <tr>
+              <td><strong>Niveau d'accreditation :</strong></td>
+              <td>{{utilisateur.role}}</td>
+            </tr>
+            <tr>
+              <td><strong>Utilisateur créé le :</strong></td>
+              <td>{{utilisateur.createdAt | date: 'dd/MM/yyyy'}}</td>
+            </tr>
+            <tr>
+              <td><strong>Utilisateur modifié le :</strong></td>
+              <td>{{utilisateur.updatedAt | date: 'dd/MM/yyyy'}}</td>
+            </tr>
+            </tbody>
+          </table>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
