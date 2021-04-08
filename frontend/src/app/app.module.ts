@@ -71,8 +71,9 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        whitelistedDomains: [environment.backend_base],
-        blacklistedRoutes: [environment.backend_base + '/auth/login']
+        allowedDomains: [environment.backend_base, "localhost:3000"],
+        disallowedRoutes: [environment.backend_base + '/auth/login']
+
       }
     }),
     NgxsModule.forRoot([], {

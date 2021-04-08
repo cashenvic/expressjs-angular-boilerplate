@@ -70,7 +70,7 @@
 }
 
 .empty-image:before {
-  content: url("assets/img/box.svg");
+  content: url("~/src/assets/img/box.svg");
 }
 
 .empty-image {
@@ -78,7 +78,7 @@
 }
 
 .not-found:before {
-  content: url("assets/img/404.svg");
+  content: url("~/src/assets/img/404.svg");
 }
 
 label.requis:after {
