@@ -1,6 +1,6 @@
-var express = require('express');
-var loginCtrl = require('./loginCtrl');
-var registerCtrl = require('./register');
+let express = require('express');
+let loginCtrl = require('./loginCtrl');
+let registerCtrl = require('./register');
 let resetPwdCtrl = require('./resetPwdCtrl');
 // Validators
 const loginValidator = require('./validators/loginValidator');
@@ -9,7 +9,7 @@ const registerValidator = require('./validators/registerValidator');
 const accessControl = require('./accessControl');
 const roles = accessControl.roles;
 exports.router = (function () {
-    var authRouter = express.Router();
+    let authRouter = express.Router();
 
     /**
      * Route for login

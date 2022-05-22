@@ -30,7 +30,7 @@ router.put('/',
 
 router.delete('/:id',
     utilisateurValidator.validate('getUser'),
-    accessControl.canAccess(['admin', 'advanced-user']),
+    accessControl.canAccess([roles.ADMIN, roles.ADVANCED]),
     utilisateurCtrl.destroy);
 
 router.use('/photo', photoRouter);
