@@ -1,7 +1,7 @@
-let userDao = require('../../dao/userDAO');
+let userDao = require('../../dao/user-dao');
 let bcrypt = require('bcrypt');
 const {validationResult} = require('express-validator');
-const config = require('../../config/jwt_config');
+const config = require('../../config/jwt-config.json');
 const SALT_FACTOR = config.salt_factor;
 
 async function register(req, res) {

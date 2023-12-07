@@ -1,11 +1,11 @@
-var models = require('../../models');
-var bcrypt = require('bcrypt');
-var jwtUtils = require('./jwtUtils');
+let models = require('../../models');
+let bcrypt = require('bcrypt');
+let jwtUtils = require('./jwt-utils');
 const {validationResult} = require('express-validator');
 
-let userDao = require('../../dao/userDAO');
+let userDao = require('../../dao/user-dao');
 
-async function loginCtrl(req, res) {
+async function loginController(req, res) {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
@@ -54,5 +54,5 @@ function isAuthenticated(req) {
 }
 
 module.exports = {
-    loginCtrl, isAuthenticated
+    loginCtrl: loginController, isAuthenticated
 };

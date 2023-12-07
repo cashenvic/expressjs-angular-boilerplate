@@ -1,10 +1,10 @@
-var models = require('../../models');
-var bcrypt = require('bcrypt');
-var jwtUtils = require('./jwtUtils');
+let models = require('../../models');
+let bcrypt = require('bcrypt');
+let jwtUtils = require('./jwt-utils');
 const {validationResult} = require('express-validator');
-const config = require('../../config/jwt_config');
+const config = require('../../config/jwt-config.json');
 const SALT_FACTOR = config.salt_factor;
-let userDao = require('../../dao/userDAO');
+let userDao = require('../../dao/user-dao');
 
 async function resetPwd(req, res) {
     const errors = validationResult(req);

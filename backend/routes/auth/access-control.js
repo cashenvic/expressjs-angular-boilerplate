@@ -1,4 +1,4 @@
-const login = require('./loginCtrl');
+const login = require('./login-controller');
 
 const roles = {
     ADMIN: 'admin',
@@ -24,14 +24,14 @@ function canAccess(authorisedRoles = []) {
             //If the user is not authenticated
             if (!authInfo.isAuth) {
                 return res.status(401).json({
-                    message: (authInfo.status === '') ? 'Vous n\'êtes pas authentifié' : authInfo.status
+                    message: (authInfo.status === '') ? "Vous n'êtes pas authentifié" : authInfo.status
                 });
             }
 
             //If the user is not authorised to access the resource
             if (!authorisedRoles.includes(authInfo.role) && !authorisedRoles.includes('all')) {
                 return res.status(401).json({
-                    message: 'Vous n\'êtes pas autorisé à acceder à cette ressource'
+                    message: "Vous n'êtes pas autorisé à accéder à cette ressource"
                 });
             }
 
@@ -52,14 +52,14 @@ function deniedRoles(deniedRoles = []) {
             //If the user is not authenticated
             if (!authInfo.isAuth) {
                 return res.status(401).json({
-                    message: (authInfo.status === '') ? 'Vous n\'êtes pas authentifié' : authInfo.status
+                    message: (authInfo.status === '') ? "Vous n'êtes pas authentifié" : authInfo.status
                 });
             }
 
             //If the user is denied to access the ressource
             if (deniedRoles.includes(authInfo.role)) {
                 return res.status(401).json({
-                    message: 'Vous n\'êtes pas autorisé à acceder à cette ressource'
+                    message: "Vous n'êtes pas autorisé à accéder à cette ressource"
                 });
             }
 

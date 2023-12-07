@@ -1,6 +1,6 @@
 let express = require('express');
 
-const utilisateurRouter = require('./utilisateur/utilisateurRouter');
+const userRouter = require('./user/user-router');
 
 /**
  *Available roles 'basic-user', 'medium-user', 'advanced-user', 'admin'
@@ -9,7 +9,7 @@ const utilisateurRouter = require('./utilisateur/utilisateurRouter');
 exports.router = (function () {
     let apiRouter = express.Router();
 
-    apiRouter.use('/utilisateur', utilisateurRouter);
+    apiRouter.use('/utilisateur', userRouter);
 
     return apiRouter;
 })();

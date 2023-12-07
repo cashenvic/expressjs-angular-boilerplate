@@ -1,10 +1,10 @@
 let express = require('express');
 let router = express.Router();
 
-const contactValidator = require('../routes/contactController');
+const contactValidator = require('./contact-controller');
 const {validationResult} = require('express-validator');
 
-const config = require('../config/jwt_config');
+const config = require('../config/jwt-config.json');
 const content = require('../config/content');
 
 let contentObj = {title: config.app_name, basic: content.basic, pro: content.pro, enterprise: content.enterprise};

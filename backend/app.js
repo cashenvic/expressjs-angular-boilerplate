@@ -10,8 +10,8 @@ let logger = require('morgan');
 //Routes controllers
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
-let apiRoutes = require('./routes/api/apiRoutes').router;
-let authRoutes = require('./routes/auth/authRouter').router;
+let apiRoutes = require('./routes/api/api-routes').router;
+let authRoutes = require('./routes/auth/auth-router').router;
 
 let app = express();
 

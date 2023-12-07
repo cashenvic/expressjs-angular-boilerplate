@@ -2,8 +2,8 @@
 let chai = require('chai');
 let assert = chai.assert;
 let chaiHttp = require('chai-http');
-
-const userDao = require('../dao/userDAO');
+let app = require('../app');
+const userDao = require('../dao/user-dao');
 
 // Configure chai
 chai.use(chaiHttp);
@@ -26,15 +26,15 @@ describe("Test userDao", () => {
     describe("getByUsername", () => {
         it("Should return the user with username: " + username, async () => {
             const result = await userDao.getByUsername(username);
-
+            //console.log(result);
             assert.isDefined(result);
-            assert(result?.username === "seed", 'The returned username is not correct');
+            assert(result.username === username, 'The returned username is not correct');
         });
 
         username = 'afmin1';
         it("Should return null for username " + username, async () => {
             const result = await userDao.getByUsername('afmin1');
-
+            console.log(result);
             assert.isDefined(result);
             assert(result === null, `Shouldn't get any user`);
         });

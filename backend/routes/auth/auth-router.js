@@ -1,12 +1,12 @@
 let express = require('express');
-let loginCtrl = require('./loginCtrl');
+let loginCtrl = require('./login-controller');
 let registerCtrl = require('./register');
-let resetPwdCtrl = require('./resetPwdCtrl');
+let resetPwdCtrl = require('./reset-password-controller');
 // Validators
-const loginValidator = require('./validators/loginValidator');
-const registerValidator = require('./validators/registerValidator');
+const loginValidator = require('./validators/login-validator');
+const registerValidator = require('./validators/register-validator');
 
-const accessControl = require('./accessControl');
+const accessControl = require('./access-control');
 const roles = accessControl.roles;
 exports.router = (function () {
     let authRouter = express.Router();

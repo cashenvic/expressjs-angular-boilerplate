@@ -1,6 +1,6 @@
-var models = require('../../../models');
+let models = require('../../../models');
 const {validationResult} = require('express-validator');
-const userDao = require('../../../dao/userDAO');
+const userDao = require('../../../dao/user-dao');
 
 async function getAll(req, res) {
     const errors = validationResult(req);
@@ -39,7 +39,7 @@ async function getUserById(req, res) {
         return;
     }
 
-    var id = req.params.id;
+    let id = req.params.id;
 
     let user = await userDao.getById(id);
 
@@ -63,7 +63,7 @@ async function updateUser(req, res) {
         res.status(422).json({errors: errors.array()});
         return;
     }
-    var user = {
+    let user = {
         id: req.body.id,
         nom: req.body.nom,
         prenom: req.body.prenom,
@@ -71,7 +71,7 @@ async function updateUser(req, res) {
         role: req.body.role
     };
 
-    //var id = req.params.id;
+    //let id = req.params.id;
     let userUpdated = await userDao.updateUser(user);
 
     if (userUpdated.status === 'error') {
@@ -94,7 +94,7 @@ function destroy(req, res) {
         return;
     }
 
-    var id = req.params.id;
+    let id = req.params.id;
 
     models.User.findByPk(id).then((userFound) => {
         if (!userFound) {

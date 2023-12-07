@@ -1,7 +1,7 @@
 const chai = require('chai');
 const assert = chai.assert;
 const chaiHttp = require('chai-http');
-const userDao = require('../dao/userDAO');
+const userDao = require('../dao/user-dao');
 
 chai.use(chaiHttp);
 chai.should();

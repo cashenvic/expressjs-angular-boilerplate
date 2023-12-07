@@ -1,5 +1,5 @@
-var jwt = require('jsonwebtoken');
-const config = require('../../config/jwt_config');
+let jwt = require('jsonwebtoken');
+const config = require('../../config/jwt-config.json');
 const JWT_SIGN_SECRET = config.secret;
 const EXPRIRES_IN = config.expires_in;
 
@@ -34,11 +34,11 @@ function getUserInfo(authorization) {
         role: ""
     };
 
-    var token = module.exports.parseAuthorization(authorization);
+    let token = module.exports.parseAuthorization(authorization);
 
     if (token != null) {
         try {
-            var jwtToken = jwt.verify(token, JWT_SIGN_SECRET);
+            let jwtToken = jwt.verify(token, JWT_SIGN_SECRET);
             if (jwtToken != null) {
                 user = {
                     userId: jwtToken.userId,

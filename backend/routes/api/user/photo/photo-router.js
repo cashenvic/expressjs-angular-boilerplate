@@ -1,9 +1,9 @@
 let express = require('express');
 let router = express.Router();
 
-const accessControl = require('../../../auth/accessControl');
+const accessControl = require('../../../auth/access-control');
 const roles = accessControl.roles;
-let photoCtrl = require('./photoCtrl');
+let photoCtrl = require('./photo-controller');
 let multer = require('../../utils/multer');
 
 router.post('/:id', multer.saveToUploads, (req, res, next) => {

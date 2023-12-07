@@ -22,7 +22,7 @@ const diskStorage = multer.diskStorage({
 const saveLogo = multer({
     storage: diskStorage,
     fileFilter: function (req, file, callback) {
-        var ext = path.extname(file.originalname);
+        let ext = path.extname(file.originalname);
         if (ext !== '.png' && ext !== '.jpg' && ext !== '.gif' && ext !== '.jpeg') {
             return callback(new Error('Only images are allowed'))
         }
