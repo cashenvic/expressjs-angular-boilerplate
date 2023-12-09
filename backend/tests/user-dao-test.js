@@ -6,13 +6,12 @@ const userDao = require('../dao/user-dao');
 chai.use(chaiHttp);
 chai.should();
 
-describe("userDao tests", () => {
-    describe("getCount", () => {
-        it("Should return total distinct users count", async () => {
-            const result = await userDao.getCount();
-            assert.isDefined(result);
-            assert(typeof (result) === "number", 'Result must be a number');
-        })
+describe('userDao tests', () => {
+  describe('getCount', () => {
+    it('Should return total distinct users count', async () => {
+      const result = await userDao.getCount();
+      assert.isDefined(result);
+      assert(typeof result === 'number', 'Result must be a number');
     });
+  });
 });
-

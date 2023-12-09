@@ -9,29 +9,35 @@ const roles = accessControl.roles;
 
 //get all users
 
-router.get('/',
-    userValidator.validate('getAllUsers'),
-    accessControl.canAccess([roles.ALL]),
-    userCtrl.getAll);
+router.get(
+  '/',
+  userValidator.validate('getAllUsers'),
+  accessControl.canAccess([roles.ALL]),
+  userCtrl.getAll
+);
 
-router.get('/whoami',
-    accessControl.canAccess([roles.ALL]),
-    userCtrl.whoAmI);
+router.get('/whoami', accessControl.canAccess([roles.ALL]), userCtrl.whoAmI);
 
-router.get('/:id',
-    userValidator.validate('getUser'),
-    accessControl.canAccess([roles.ALL]),
-    userCtrl.getUserById);
+router.get(
+  '/:id',
+  userValidator.validate('getUser'),
+  accessControl.canAccess([roles.ALL]),
+  userCtrl.getUserById
+);
 
-router.put('/',
-    userValidator.validate('update'),
-    accessControl.canAccess([roles.ALL]),
-    userCtrl.updateUser);
+router.put(
+  '/',
+  userValidator.validate('update'),
+  accessControl.canAccess([roles.ALL]),
+  userCtrl.updateUser
+);
 
-router.delete('/:id',
-    userValidator.validate('getUser'),
-    accessControl.canAccess(['admin', 'advanced-user']),
-    userCtrl.destroy);
+router.delete(
+  '/:id',
+  userValidator.validate('getUser'),
+  accessControl.canAccess(['admin', 'advanced-user']),
+  userCtrl.destroy
+);
 
 router.use('/photo', photoRouter);
 
